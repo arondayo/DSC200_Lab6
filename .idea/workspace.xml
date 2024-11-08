@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8093de48-09dc-46ac-a918-45e1376c3457" name="Changes" comment="initial commit" />
+    <list default="true" id="8093de48-09dc-46ac-a918-45e1376c3457" name="Changes" comment="basic progress, had to delete uncompressed csv files to be below the push size limit&#10;[DO NOT COMMIT THE UNCOMPRESSED CSV FILES]">
+      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2.py" beforeDir="false" afterPath="$PROJECT_DIR$/part2.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +59,10 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Aaron\Documents\Obsidian Vaults\College\test\DSC 200 Data Wrangling\Module 6\Lab\data" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aaron\Documents\Obsidian Vaults\College\test\DSC 200 Data Wrangling\Module 6\Lab\data" />
+      <recent name="C:\Users\Aaron\Documents\Obsidian Vaults\College\test\DSC 200 Data Wrangling\Module 6\Lab" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -80,7 +88,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731003047154</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="basic progress, had to delete uncompressed csv files to be below the push size limit&#10;[DO NOT COMMIT THE UNCOMPRESSED CSV FILES]">
+      <option name="closed" value="true" />
+      <created>1731015806805</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731015806805</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,6 +112,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="basic progress, had to delete uncompressed csv files to be below the push size limit&#10;[DO NOT COMMIT THE UNCOMPRESSED CSV FILES]" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic progress, had to delete uncompressed csv files to be below the push size limit&#10;[DO NOT COMMIT THE UNCOMPRESSED CSV FILES]" />
   </component>
 </project>
