@@ -1,5 +1,3 @@
-from heapq import merge
-
 import pandas as pd
 import zipfile
 
@@ -43,12 +41,19 @@ except FileNotFoundError:
         df_movies = pd.read_csv('data/archive/rotten_tomatoes_movies.csv')  # , index_col='rotten_tomatoes_link'
         df_reviews = pd.read_csv('data/archive/rotten_tomatoes_critic_reviews.csv')
 
+print('Before:')
+print(f'\tMovies: {df_movies.shape}')
+print(f'\tReviews: {df_reviews.shape}\n')
+# display_dataframe_info(df_movies, "Movies")
+# display_dataframe_info(df_reviews, "Reviews")
 
-display_dataframe_info(df_movies, "Movies")
-display_dataframe_info(df_reviews, "Reviews")
 
-# todo: what meaningful merges can we do here
+# Make a meaningful merge...
+# idea: merge the reviews -> movies so each of the movies has 1 review each
+
 # the only col that relates the two is 'rotten_tomatoes_link', [movies 1:M reviews]
+
+# Removing rows with missing data and/or duplicates of both dataframes
 
 temp_movies_df = df_movies.dropna().drop_duplicates(subset=['rotten_tomatoes_link'])
 # display_dataframe_info(temp_movies_df, "TempMovies")
@@ -56,8 +61,16 @@ temp_movies_df = df_movies.dropna().drop_duplicates(subset=['rotten_tomatoes_lin
 temp_reviews_df = df_reviews.dropna().drop_duplicates(subset=['rotten_tomatoes_link'])
 # display_dataframe_info(temp_reviews_df, "TempReviews")
 
+# merging on 'rotten_tomatoes_link' with inner merge so that the resulting dataframe will have a review for each movie
 merged_df = pd.merge(temp_movies_df, temp_reviews_df, on='rotten_tomatoes_link')
+merged_df.to_csv('data/lab6_group1_cleaned.csv')
+print('After:')
+print(f'\tMerged: {merged_df.shape}')
 
+
+
+# ====== Extra output idea ======
+# while merging the two datasets like this is good I had an idea of producing a random sample of 20 crappy movie reviews
 output = merged_df[
     ['rotten_tomatoes_link',
      'movie_title',
@@ -69,15 +82,15 @@ output = merged_df[
      'review_content']]
 
 output.set_index('rotten_tomatoes_link', drop=True, inplace=True)
-display_dataframe_info(output, "output")
+# display_dataframe_info(output, "output")
 
-sample_score_high = output.loc[output['tomatometer_rating']>=90, :].sample(20)
+# sample_score_high = output.loc[output['tomatometer_rating']>=90, :].sample(20)
 sample_score_low = output.loc[output['tomatometer_rating']<=10, :].sample(20)
 
 try:
-    output.to_csv('data/lab6_group1_cleaned.csv')
+    # output.to_csv('data/lab6_group1_cleaned.csv')
 
-    sample_score_high.to_csv('data/sample_score_high.csv')
+    # sample_score_high.to_csv('data/sample_score_high.csv')
     sample_score_low.to_csv('data/sample_score_low.csv')
 except PermissionError:
     print("Unable to write to currently open csv files")
